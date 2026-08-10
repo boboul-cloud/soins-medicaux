@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Documentation, politique de confidentialite, conditions generales et support de l'application Soins Medicaux.">
+<style>*{margin:0;padding:0}img,svg{max-width:100%}</style>
+</head>
+<body>
+<title>Soins Médicaux — Documentation, confidentialité et support</title>
+
+<style>
+  /* ---------- Jetons : palette claire complète ---------- */
+  :root {
+    --papier:      #F9F7F4;
+    --surface:     #FFFDFB;
+    --surface-alt: #F1EDE6;
+    --encre:       #1F1D1A;
+    --encre-2:     #55504A;
+    --encre-3:     #857E75;
+    --filet:       #E2DCD3;
+    --filet-fort:  #CFC7BB;
+    --accent:      #B84E33;
+    --accent-doux: #F2E2DB;
+    --sauge:       #3D6B4C;
+    --sauge-doux:  #E1EBE2;
+    --ardoise:     #37536D;
+
+    --mesure: 68ch;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --serif: ui-serif, "New York", "Iowan Old Style", Georgia, serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  /* Système clair explicite : bat un OS sombre */
+  :root[data-theme="light"] { color-scheme: light; }
+
+  /* OS sombre, sauf si le lecteur a explicitement choisi clair */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --papier:      #16150F;
+      --surface:     #201E1A;
+      --surface-alt: #2A2722;
+      --encre:       #EFEBE4;
+      --encre-2:     #B8B1A7;
+      --encre-3:     #8A837A;
+      --filet:       #37332C;
+      --filet-fort:  #4A453D;
+      --accent:      #E28A64;
+      --accent-doux: #3A2820;
+      --sauge:       #7FBE93;
+      --sauge-doux:  #1E2D23;
+      --ardoise:     #8FB0CB;
+      color-scheme: dark;
+    }
+  }
+
+  /* Choix explicite sombre : bat un OS clair */
+  :root[data-theme="dark"] {
+    --papier:      #16150F;
+    --surface:     #201E1A;
+    --surface-alt: #2A2722;
+    --encre:       #EFEBE4;
+    --encre-2:     #B8B1A7;
+    --encre-3:     #8A837A;
+    --filet:       #37332C;
+    --filet-fort:  #4A453D;
+    --accent:      #E28A64;
+    --accent-doux: #3A2820;
+    --sauge:       #7FBE93;
+    --sauge-doux:  #1E2D23;
+    --ardoise:     #8FB0CB;
+    color-scheme: dark;
+  }
+
+  /* ---------- Base ---------- */
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--papier);
+    color: var(--encre);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  a { color: var(--accent); text-underline-offset: 2px; }
+  a:focus-visible,
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- Ossature ---------- */
+  .feuille {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* ---------- Bandeau ---------- */
+  .bandeau {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--filet-fort);
+    padding: 56px 0 28px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .marque { display: flex; align-items: center; gap: 16px; }
+  .sceau {
+    width: 52px; height: 52px; flex: none;
+    background: var(--accent);
+    border-radius: 11px;
+    display: grid; place-items: center;
+  }
+  .sceau svg { width: 26px; height: 26px; display: block; }
+  .titre-app { margin: 0; font-size: 27px; font-weight: 600; letter-spacing: -0.02em; }
+  .sous-titre { margin: 3px 0 0; color: var(--encre-2); font-size: 14px; }
+
+  .etat { font-family: var(--mono); font-size: 11px; color: var(--encre-3); text-align: right; line-height: 1.9; }
+  .etat b { color: var(--encre-2); font-weight: 500; }
+
+  /* ---------- Sommaire latéral ---------- */
+  .sommaire { position: sticky; top: 28px; }
+  .sommaire-titre {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--encre-3);
+    padding-bottom: 12px; margin-bottom: 6px; border-bottom: 1px solid var(--filet);
+  }
+  .sommaire ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .sommaire a {
+    display: grid; grid-template-columns: 26px 1fr; gap: 2px;
+    padding: 7px 0; font-size: 13.5px; color: var(--encre-2);
+    text-decoration: none; border-bottom: 1px solid var(--filet);
+  }
+  .sommaire a:hover { color: var(--accent); }
+  .sommaire .num { font-family: var(--mono); font-size: 11px; color: var(--encre-3); padding-top: 2px; }
+
+  /* ---------- Colonne de texte ---------- */
+  .corps { min-width: 0; padding-top: 8px; }
+
+  section { padding-top: 22px; margin-bottom: 60px; scroll-margin-top: 20px; }
+
+  .eyebrow {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+  }
+  h2 {
+    font-size: 25px; font-weight: 600; letter-spacing: -0.015em;
+    margin: 0 0 18px; text-wrap: balance;
+  }
+  h3 {
+    font-size: 15px; font-weight: 600; margin: 30px 0 8px;
+    text-wrap: balance;
+  }
+  h4 {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--encre-3);
+    margin: 26px 0 8px; font-weight: 500;
+  }
+  p, li { max-width: var(--mesure); }
+  p { margin: 0 0 14px; }
+
+  /* Corps long en serif : les textes juridiques et le guide */
+  .lecture { font-family: var(--serif); font-size: 16.5px; line-height: 1.68; }
+  .lecture h3 { font-family: var(--sans); }
+  .lecture ul, .lecture ol { padding-left: 20px; margin: 0 0 14px; }
+  .lecture li { margin-bottom: 6px; }
+
+  .chapo { font-size: 17px; color: var(--encre-2); max-width: var(--mesure); margin-bottom: 22px; }
+
+  /* ---------- Schéma du flux de données ---------- */
+  .these {
+    background: var(--surface);
+    border: 1px solid var(--filet);
+    padding: 26px 28px;
+    margin-bottom: 26px;
+  }
+  .these-txt { font-size: 18px; font-weight: 500; margin: 0 0 22px; max-width: 46ch; text-wrap: balance; }
+  .flux { width: 100%; height: auto; max-width: 470px; display: block; }
+  .flux text { font-family: var(--mono); font-size: 9.5px; fill: var(--encre-2); }
+  .flux .etiq-off { fill: var(--encre-3); }
+  /* Les couleurs du schéma passent par des règles CSS : var() en attribut
+     de présentation SVG n'est pas fiable sur tous les navigateurs. */
+  .flux .boite      { fill: var(--surface-alt); stroke: var(--filet-fort); stroke-width: 1; }
+  .flux .boite-act  { fill: var(--surface-alt); stroke: var(--accent); stroke-width: 1.5; }
+  .flux .boite-off  { fill: none; stroke: var(--filet-fort); stroke-width: 1; stroke-dasharray: 4 4; }
+  .flux .trait      { stroke: var(--accent); stroke-width: 1.5; fill: none; }
+  .flux .pointe     { fill: var(--accent); }
+  .flux .trait-off  { stroke: var(--filet-fort); stroke-width: 1.5; stroke-dasharray: 4 4; }
+  .flux .barre      { stroke: var(--accent); stroke-width: 2; }
+
+  /* ---------- Blocs d'appui ---------- */
+  .avis {
+    border-left: 2px solid var(--accent);
+    background: var(--accent-doux);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-family: var(--sans);
+    font-size: 14.5px;
+    max-width: var(--mesure);
+  }
+  .avis p { margin: 0; font-family: var(--sans); }
+  .avis.ok { border-left-color: var(--sauge); background: var(--sauge-doux); }
+
+  /* ---------- Tableaux ---------- */
+  .tableau-enveloppe { overflow-x: auto; margin: 16px 0 22px; max-width: var(--mesure); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; font-family: var(--sans); }
+  th, td { text-align: left; padding: 9px 14px 9px 0; border-bottom: 1px solid var(--filet); vertical-align: top; }
+  th {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--encre-3); font-weight: 500;
+    border-bottom: 1px solid var(--filet-fort);
+  }
+  td b { font-weight: 600; }
+  .num-cell { font-variant-numeric: tabular-nums; }
+
+  /* ---------- Liste « ne fait pas » ---------- */
+  .negatif { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 1px; max-width: var(--mesure); }
+  .negatif li {
+    font-family: var(--sans); font-size: 14.5px;
+    background: var(--surface); border: 1px solid var(--filet);
+    padding: 11px 15px; margin: 0;
+    display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: baseline;
+  }
+  .negatif .croix { color: var(--accent); font-family: var(--mono); font-size: 13px; }
+
+  /* ---------- Articles juridiques ---------- */
+  .article { border-top: 1px solid var(--filet); padding-top: 16px; margin-top: 24px; }
+  .article:first-of-type { border-top: none; }
+  .article-num {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 4px;
+  }
+  .article h3 { margin-top: 0; }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    background: var(--surface); border: 1px solid var(--filet);
+    padding: 24px 26px; max-width: var(--mesure);
+    display: flex; flex-wrap: wrap; gap: 28px;
+  }
+  .contact-bloc { min-width: 190px; }
+  .contact-bloc .k {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--encre-3); display: block; margin-bottom: 5px;
+  }
+  .contact-bloc .v { font-size: 15px; }
+
+  /* ---------- Pied ---------- */
+  .pied {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--filet-fort);
+    padding-top: 20px; margin-top: 12px;
+    font-family: var(--mono); font-size: 11px; color: var(--encre-3);
+    display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between;
+  }
+
+  /* ---------- Adaptation petits écrans ---------- */
+  @media (max-width: 860px) {
+    .feuille { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0 20px 72px; }
+    .bandeau { padding-top: 36px; }
+    .etat { text-align: left; }
+    .sommaire {
+      position: static; margin: 22px 0 8px;
+      border-bottom: 1px solid var(--filet-fort); padding-bottom: 14px;
+    }
+    .sommaire-titre { border-bottom: none; padding-bottom: 8px; margin-bottom: 0; }
+    .sommaire ol { flex-direction: row; flex-wrap: wrap; gap: 0 18px; }
+    .sommaire a { border-bottom: none; padding: 4px 0; }
+    h2 { font-size: 22px; }
+    .lecture { font-size: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+
+<div class="feuille">
+
+  <header class="bandeau">
+    <div class="marque">
+      <div class="sceau" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9.6 2.4h4.8v4.8h4.8v4.8h-4.8v4.8H9.6v-4.8H4.8V7.2h4.8z" fill="#fff"/><rect x="4.8" y="18" width="14.4" height="3.6" rx="1.2" fill="#fff" opacity=".55"/></svg>
+      </div>
+      <div>
+        <h1 class="titre-app">Soins Médicaux</h1>
+        <p class="sous-titre">Gestion de cabinet médical pour iPhone et iPad</p>
+      </div>
+    </div>
+    <div class="etat">
+      Version <b>1.0</b><br>
+      Mise à jour <b>10 août 2026</b><br>
+      Éditeur <b>Robert Oulhen</b>
+    </div>
+  </header>
+
+  <nav class="sommaire" aria-label="Sommaire">
+    <div class="sommaire-titre">Sommaire</div>
+    <ol>
+      <li><a href="#principe"><span class="num">01</span><span>Le principe</span></a></li>
+      <li><a href="#guide"><span class="num">02</span><span>Guide d'utilisation</span></a></li>
+      <li><a href="#confidentialite"><span class="num">03</span><span>Confidentialité</span></a></li>
+      <li><a href="#conditions"><span class="num">04</span><span>Conditions</span></a></li>
+      <li><a href="#support"><span class="num">05</span><span>Support</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="corps">
+
+    <!-- 01 ---------------------------------------------------------------- -->
+    <section id="principe">
+      <div class="eyebrow">01 — Le principe</div>
+      <h2>Vos données ne quittent jamais votre appareil</h2>
+
+      <div class="these">
+        <p class="these-txt">L'application n'a aucune connexion réseau. Il n'existe aucun serveur, aucun compte, aucun destinataire.</p>
+        <svg class="flux" viewBox="0 0 470 96" role="img" aria-label="Schéma : les données vont du praticien vers l'appareil et s'arrêtent là ; aucune transmission vers Internet.">
+          <!-- praticien -->
+          <rect class="boite" x="1" y="22" width="104" height="42" rx="3"/>
+          <text x="53" y="47" text-anchor="middle">VOUS</text>
+          <!-- flèche : saisie -->
+          <path class="trait" d="M112 43 H160"/>
+          <path class="pointe" d="M160 43 l-6 -3.6 v7.2 z"/>
+          <text x="136" y="32" text-anchor="middle">saisie</text>
+          <!-- appareil -->
+          <rect class="boite-act" x="167" y="10" width="118" height="66" rx="3"/>
+          <text x="226" y="40" text-anchor="middle">VOTRE IPHONE</text>
+          <text x="226" y="55" text-anchor="middle" class="etiq-off">stockage local</text>
+          <!-- liaison barrée -->
+          <path class="trait-off" d="M292 43 H348"/>
+          <line class="barre" x1="310" y1="30" x2="332" y2="56"/>
+          <line class="barre" x1="332" y1="30" x2="310" y2="56"/>
+          <!-- internet -->
+          <rect class="boite-off" x="355" y="22" width="114" height="42" rx="3"/>
+          <text x="412" y="47" text-anchor="middle" class="etiq-off">INTERNET</text>
+        </svg>
+      </div>
+
+      <h4>Ce que l'application ne fait pas</h4>
+      <ul class="negatif">
+        <li><span class="croix">✕</span><span>Aucune requête réseau — fonctionnement hors ligne intégral</span></li>
+        <li><span class="croix">✕</span><span>Aucun compte, aucune inscription, aucune authentification</span></li>
+        <li><span class="croix">✕</span><span>Aucune mesure d'audience, aucune statistique d'usage</span></li>
+        <li><span class="croix">✕</span><span>Aucune publicité, aucun traceur, aucun cookie</span></li>
+        <li><span class="croix">✕</span><span>Aucun composant tiers — uniquement les bibliothèques d'Apple</span></li>
+        <li><span class="croix">✕</span><span>Aucun transfert, ni à l'éditeur, ni à un tiers, ni hors de l'Union européenne</span></li>
+      </ul>
+
+      <div class="avis ok">
+        <p>Aucune donnée n'étant hébergée chez un tiers, la certification <b>Hébergeur de Données de Santé (HDS)</b> ne s'applique pas à cette application.</p>
+      </div>
+    </section>
+
+    <!-- 02 ---------------------------------------------------------------- -->
+    <section id="guide">
+      <div class="eyebrow">02 — Guide d'utilisation</div>
+      <h2>Prendre l'application en main</h2>
+      <p class="chapo">L'application démarre avec un jeu de données fictives — 5 patients, 8 praticiens, 15 soins — pour que chaque écran soit immédiatement explorable. <b>Plus → Tout effacer</b> permet de partir d'une base vide.</p>
+
+      <div class="lecture">
+        <h3>Les cinq onglets</h3>
+        <div class="tableau-enveloppe">
+          <table>
+            <thead>
+              <tr><th>Onglet</th><th>Ce qu'on y fait</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><b>Accueil</b></td><td>Chiffres clés, revenu du mois, raccourcis et derniers soins enregistrés.</td></tr>
+              <tr><td><b>Patients</b></td><td>Liste, recherche, tri, fiche détaillée avec historique et montant total.</td></tr>
+              <tr><td><b>Soins</b></td><td>Historique groupé par mois avec le total facturé de chaque mois.</td></tr>
+              <tr><td><b>Recherche</b></td><td>Quatre modes : par patient, par médecin, par période et acte, par volume.</td></tr>
+              <tr><td><b>Plus</b></td><td>Médecins, types de soins, statistiques, export et import.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Gestes utiles</h3>
+        <ul>
+          <li><b>Ajouter</b> — le bouton <b>+</b> en haut à droite de chaque liste.</li>
+          <li><b>Supprimer</b> — balayez une ligne vers la gauche.</li>
+          <li><b>Modifier</b> — touchez la ligne d'un soin, ou <b>Modifier</b> sur une fiche.</li>
+          <li><b>Rechercher</b> — le champ en bas de l'écran, dans les listes.</li>
+        </ul>
+
+        <div class="avis">
+          <p>Supprimer un patient, un médecin ou un type de soin supprime aussi les soins qui y sont rattachés. L'application indique combien avant de demander confirmation. <b>Aucune suppression n'est annulable.</b></p>
+        </div>
+
+        <h3>Statistiques</h3>
+        <p>Chiffres clés, graphique d'activité sur six mois, répartition par type d'acte, classement des praticiens et analyse par patient. Les montants sont calculés à partir du <b>tarif actuel</b> de chaque acte : modifier un tarif recalcule donc l'historique.</p>
+
+        <h3>Sauvegarder et transférer</h3>
+        <p><b>Plus → Exporter les données</b> produit un fichier daté, transmissible par AirDrop, Fichiers ou courriel. <b>Plus → Importer un fichier</b> fait l'opération inverse — en <b>remplaçant intégralement</b> les données présentes.</p>
+        <p>Le format est identique à celui de l'application macOS d'origine : un export réalisé sur le Mac s'importe sur l'iPhone, et inversement. C'est aussi la façon de transférer des données entre un iPhone et un iPad, qui ne se synchronisent pas entre eux.</p>
+
+        <div class="avis">
+          <p>Les données n'existent que sur votre appareil. Sans export, une perte, un vol ou une réinitialisation les fait disparaître définitivement. <b>Exportez régulièrement.</b> Le fichier produit n'est pas chiffré et contient des données de santé : ne le déposez pas sur un service de stockage grand public.</p>
+        </div>
+
+        <h3>Sécurité de l'appareil</h3>
+        <p>L'application n'a pas de mot de passe propre : sa protection est celle de l'appareil. Dans un usage professionnel, un <b>code d'accès</b>, Face ID ou Touch ID, un verrouillage automatique court et des mises à jour d'iOS à jour sont indispensables. Sans code d'accès, le chiffrement au repos d'iOS ne s'applique pas.</p>
+      </div>
+    </section>
+
+    <!-- 03 ---------------------------------------------------------------- -->
+    <section id="confidentialite">
+      <div class="eyebrow">03 — Politique de confidentialité</div>
+      <h2>Politique de confidentialité</h2>
+      <p class="chapo">En vigueur au 10 août 2026 · Version 1.0 de l'application</p>
+
+      <div class="lecture">
+        <h3>Qui fait quoi</h3>
+        <p><b>L'éditeur</b>, Robert Oulhen, ne collecte, ne reçoit, ne consulte et ne conserve aucune donnée issue de l'application. Il n'a techniquement aucun moyen d'accéder à ce que vous y saisissez.</p>
+        <p><b>Vous, professionnel de santé utilisateur</b>, êtes le <b>responsable de traitement</b> au sens du RGPD pour les données de vos patients. Les obligations qui en découlent vous incombent ; elles sont détaillées plus bas.</p>
+
+        <h3>Données traitées par l'application</h3>
+        <div class="tableau-enveloppe">
+          <table>
+            <thead><tr><th>Catégorie</th><th>Données enregistrées</th></tr></thead>
+            <tbody>
+              <tr><td><b>Patients</b></td><td>Nom, prénom, téléphone, adresse, date de naissance</td></tr>
+              <tr><td><b>Médecins</b></td><td>Nom, prénom, spécialité, téléphone</td></tr>
+              <tr><td><b>Types de soins</b></td><td>Libellé, durée, tarif</td></tr>
+              <tr><td><b>Soins prodigués</b></td><td>Patient, médecin, acte, date, notes libres</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Les notes de soins et le lien entre un patient et un acte constituent des <b>données concernant la santé</b> au sens de l'article 9 du RGPD. Elles relèvent d'une catégorie particulière, plus strictement protégée, et sont couvertes par le secret médical.</p>
+
+        <h3>Où sont stockées les données</h3>
+        <p>Dans un fichier unique, situé dans l'espace privé de l'application. Cet espace est isolé par iOS : aucune autre application ne peut y accéder.</p>
+        <p><b>Au repos</b> — iOS chiffre cet espace dès que l'appareil est verrouillé, à condition qu'un code d'accès soit configuré.</p>
+        <p><b>Sauvegardes</b> — si les sauvegardes iCloud ou les sauvegardes locales sont activées, le fichier y est inclus, comme pour toute application. Elles sont chiffrées par Apple. Cela vous protège d'une perte d'appareil, mais implique qu'une copie existe dans votre compte iCloud ; vous pouvez l'exclure dans <i>Réglages → votre nom → iCloud → Sauvegarde</i>.</p>
+        <p><b>Suppression</b> — désinstaller l'application efface définitivement le fichier et l'ensemble de son contenu.</p>
+
+        <h3>Absence de dispositif médical</h3>
+        <p>L'application est un outil de gestion administrative. Elle n'effectue aucun calcul clinique, ne formule aucune recommandation, n'assiste ni le diagnostic ni la décision thérapeutique. Elle ne constitue pas un dispositif médical au sens du règlement (UE) 2017/745 et n'a fait l'objet d'aucun marquage CE à ce titre.</p>
+
+        <h3>Vos obligations de responsable de traitement</h3>
+        <ul>
+          <li><b>Informer vos patients</b> du traitement, de sa finalité et de leurs droits.</li>
+          <li><b>Tenir un registre</b> des activités de traitement (article 30 du RGPD).</li>
+          <li><b>Répondre aux demandes d'exercice de droits</b> — accès, rectification, effacement, limitation, portabilité, opposition. L'application permet de consulter, modifier, supprimer et exporter les données d'un patient, ce qui couvre les besoins techniques correspondants.</li>
+          <li><b>Définir des durées de conservation</b>. L'application ne supprime rien automatiquement. Le dossier médical est en principe conservé vingt ans à compter de la dernière consultation, mais cette durée dépend de votre situation.</li>
+          <li><b>Sécuriser l'appareil</b> et <b>respecter le secret médical</b>, en particulier lors des exports.</li>
+        </ul>
+
+        <h3>Réclamation</h3>
+        <p>Vous disposez du droit d'introduire une réclamation auprès de la CNIL, 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07 — <a href="https://www.cnil.fr">www.cnil.fr</a>.</p>
+      </div>
+    </section>
+
+    <!-- 04 ---------------------------------------------------------------- -->
+    <section id="conditions">
+      <div class="eyebrow">04 — Conditions générales</div>
+      <h2>Conditions générales d'utilisation</h2>
+      <p class="chapo">En vigueur au 10 août 2026 · Télécharger, installer ou utiliser l'application vaut acceptation de ces conditions.</p>
+
+      <div class="lecture">
+        <div class="article">
+          <span class="article-num">Article 1</span>
+          <h3>Objet et service</h3>
+          <p>Les présentes conditions régissent l'utilisation de l'application <b>Soins Médicaux</b>, éditée par Robert Oulhen. L'application est un outil de gestion administrative de cabinet médical : fiches patients et praticiens, actes, historique des soins et statistiques d'activité. Elle fonctionne intégralement hors ligne, sans compte ni serveur.</p>
+        </div>
+
+        <div class="article">
+          <span class="article-num">Article 2</span>
+          <h3>Absence de qualité de dispositif médical</h3>
+          <p>L'application n'est pas un dispositif médical au sens du règlement (UE) 2017/745. Elle ne se substitue en aucun cas au jugement professionnel du praticien, et <b>aucune décision de soin ne doit être fondée sur une information qu'elle affiche</b>. Les montants, durées et statistiques sont indicatifs, sans valeur comptable, fiscale ou probatoire.</p>
+        </div>
+
+        <div class="article">
+          <span class="article-num">Article 3</span>
+          <h3>Licence</h3>
+          <p>L'éditeur concède un droit d'utilisation personnel, non exclusif et non transférable. L'utilisateur s'interdit de décompiler ou de pratiquer l'ingénierie inverse de l'application, sauf dans les limites permises par la loi, ainsi que de la revendre, la louer ou la redistribuer.</p>
+        </div>
+
+        <div class="article">
+          <span class="article-num">Article 4</span>
+          <h3>Obligations de l'utilisateur</h3>
+          <p>L'utilisateur est seul responsable de l'exactitude et de la licéité des données qu'il saisit, du respect du secret médical et de ses obligations déontologiques, du respect du RGPD dont il est responsable de traitement, de la sécurité de son appareil et de la réalisation de sauvegardes régulières.</p>
+        </div>
+
+        <div class="article">
+          <span class="article-num">Article 5</span>
+          <h3>Sauvegarde et perte de données</h3>
+          <p>Les données étant stockées exclusivement sur l'appareil, leur perte est définitive en cas de perte, vol, panne, réinitialisation ou désinstallation, sauf sauvegarde préalable. L'éditeur ne peut restaurer aucune donnée, n'en détenant aucune copie.</p>
+        </div>
+
+        <div class="article">
+          <span class="article-num">Article 6</span>
+          <h3>Garantie et responsabilité</h3>
+          <p>L'application est fournie « en l'état ». Dans les limites permises par la loi, l'éditeur ne garantit pas qu'elle sera exempte d'erreurs ni qu'elle répondra à un besoin particulier, et ne saurait être tenu responsable des dommages résultant d'une perte de données, d'une saisie erronée ou d'un manquement de l'utilisateur à ses propres obligations réglementaires.</p>
+          <p>Aucune stipulation ne saurait écarter la responsabilité de l'éditeur en cas de dol, de faute lourde ou de dommage corporel, ni les garanties légales impératives dont bénéficie le consommateur.</p>
+        </div>
+
+        <div class="article">
+          <span class="article-num">Article 7</span>
+          <h3>Propriété intellectuelle</h3>
+          <p>L'application, son code source et son interface demeurent la propriété exclusive de l'éditeur. <b>Les données saisies appartiennent intégralement à l'utilisateur</b> ; l'éditeur n'y a aucun accès et ne revendique aucun droit sur celles-ci.</p>
+        </div>
+
+        <div class="article">
+          <span class="article-num">Article 8</span>
+          <h3>Droit applicable</h3>
+          <p>Les présentes conditions sont régies par le droit français. En cas de litige, une solution amiable sera recherchée en priorité ; le consommateur peut recourir gratuitement à un médiateur de la consommation. À défaut d'accord, les tribunaux français sont compétents, sous réserve des règles impératives protectrices du consommateur.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 ---------------------------------------------------------------- -->
+    <section id="support">
+      <div class="eyebrow">05 — Support</div>
+      <h2>Assistance</h2>
+      <p class="chapo">Une question, une anomalie, une suggestion : écrivez directement à l'éditeur. Précisez votre modèle d'appareil, votre version d'iOS et la version de l'application.</p>
+
+      <div class="contact">
+        <div class="contact-bloc">
+          <span class="k">Courriel</span>
+          <span class="v"><a href="mailto:bob.oulhen@gmail.com">bob.oulhen@gmail.com</a></span>
+        </div>
+        <div class="contact-bloc">
+          <span class="k">Éditeur</span>
+          <span class="v">Robert Oulhen</span>
+        </div>
+        <div class="contact-bloc">
+          <span class="k">Version</span>
+          <span class="v num-cell">1.0 (build 1)</span>
+        </div>
+        <div class="contact-bloc">
+          <span class="k">Compatibilité</span>
+          <span class="v">iOS 17 et ultérieur</span>
+        </div>
+      </div>
+
+      <h4>Questions fréquentes</h4>
+      <div class="lecture">
+        <p><b>L'application fonctionne-t-elle sans connexion ?</b><br>Oui, exclusivement. Elle n'accède jamais au réseau.</p>
+        <p><b>Mes données partent-elles quelque part ?</b><br>Non. Aucun serveur, aucune statistique d'usage, aucun tiers.</p>
+        <p><b>Puis-je l'utiliser sur plusieurs appareils ?</b><br>Oui, mais sans synchronisation : chaque appareil a ses propres données. Le transfert se fait par export et import.</p>
+        <p><b>Comment tout supprimer définitivement ?</b><br><i>Plus → Tout effacer</i>, ou désinstallez l'application.</p>
+        <p><b>Puis-je annuler une suppression ?</b><br>Non. Les suppressions sont immédiates et définitives, d'où l'importance des exports réguliers.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pied">
+    <span>Soins Médicaux 1.0 — Robert Oulhen</span>
+    <span>Document mis à jour le 10 août 2026</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
