@@ -1,7 +1,7 @@
 # Politique de confidentialité — Soins Médicaux
 
 **Dernière mise à jour : 11 août 2026**
-**Version de l'application : 1.1**
+**Version de l'application : 1.0**
 
 ## En une phrase
 

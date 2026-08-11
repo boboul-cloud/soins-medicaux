@@ -3,7 +3,7 @@
 Application de gestion de cabinet médical pour iPhone et iPad. Fonctionne hors ligne ; seules
 la sauvegarde et la synchronisation, dans votre propre espace iCloud, utilisent le réseau.
 
-*Version 1.1 de l'application — 11 août 2026.*
+*Version 1.0 de l'application — 11 août 2026.*
 
 ## Premier lancement
 
