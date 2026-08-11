@@ -25,10 +25,13 @@ administrative de cabinet médical pour iPhone et iPad.
 
 ## L'essentiel sur les données
 
-L'application fonctionne **intégralement hors ligne**. Aucun serveur, aucun compte,
-aucune mesure d'audience, aucun composant tiers. Les données saisies sont stockées
-dans l'espace privé de l'application, sur l'appareil, et ne sont transmises à personne —
-y compris à l'éditeur.
+Aucun serveur de l'éditeur, aucun compte, aucune mesure d'audience, aucun composant
+tiers. Les données saisies sont stockées dans l'espace privé de l'application, sur
+l'appareil, et ne sont transmises à personne — y compris à l'éditeur.
+
+La seule sortie hors de l'appareil est la sauvegarde dans **l'espace iCloud Drive de
+l'utilisateur**, qui sert aussi à synchroniser ses propres appareils entre eux, dans les
+deux sens. Elle se désactive dans les réglages d'iOS.
 
 Le professionnel de santé qui utilise l'application est **responsable de traitement** au
 sens du RGPD pour les données de ses patients ; l'éditeur ne traite aucune donnée.

@@ -1,12 +1,13 @@
 # Politique de confidentialité — Soins Médicaux
 
-**Dernière mise à jour : 10 août 2026**
-**Version de l'application : 1.0**
+**Dernière mise à jour : 11 août 2026**
+**Version de l'application : 1.1**
 
 ## En une phrase
 
-L'application Soins Médicaux ne collecte aucune donnée, n'envoie rien sur Internet et ne
-communique avec aucun serveur. Tout ce que vous saisissez reste sur votre appareil.
+L'application Soins Médicaux ne collecte aucune donnée et ne communique avec aucun serveur
+de l'éditeur. Tout ce que vous saisissez reste sur votre appareil et, si vous laissez la
+sauvegarde active, dans votre propre espace iCloud.
 
 ## 1. Qui fait quoi
 
@@ -42,17 +43,23 @@ médical.
 
 L'application ne comporte :
 
-- **aucune connexion réseau** — elle fonctionne intégralement hors ligne ;
+- **aucun serveur de l'éditeur** — elle ne se connecte à aucun service que l'éditeur
+  exploite, contrôle ou peut consulter ;
 - **aucun compte utilisateur**, aucune authentification, aucune inscription ;
 - **aucun outil de mesure d'audience** ni statistique d'usage ;
 - **aucune publicité**, aucun traceur, aucun cookie ;
 - **aucun kit de développement tiers** (SDK) — le code ne dépend que des bibliothèques
   fournies par Apple ;
-- **aucun transfert de données**, ni vers l'éditeur, ni vers un tiers, ni hors de l'Union
-  européenne.
+- **aucun transfert de données à l'éditeur ni à un tiers destinataire**.
 
-Aucune donnée n'étant hébergée chez un tiers, la certification **Hébergeur de Données de
-Santé (HDS)** ne s'applique pas à cette application.
+La seule sortie de données hors de l'appareil est la sauvegarde dans **votre propre espace
+iCloud Drive**, décrite à la section 4. Elle utilise le réseau, elle est activable et
+désactivable par vous, et elle ne va nulle part ailleurs que dans le compte iCloud dont vous
+êtes titulaire.
+
+L'éditeur n'hébergeant aucune donnée pour le compte de qui que ce soit, il n'entre pas dans
+le champ de la certification **Hébergeur de Données de Santé (HDS)**. Le stockage iCloud
+relève de votre propre compte et des conditions que vous avez conclues avec Apple.
 
 ## 4. Où sont stockées les données
 
@@ -72,9 +79,50 @@ d'appareil, mais implique qu'une copie des données existe dans votre compte iCl
 Vous pouvez désactiver la sauvegarde de l'application dans *Réglages → votre nom → iCloud
 → Sauvegarde*.
 
-**Suppression.** Désinstaller l'application supprime définitivement le fichier de données
-et l'ensemble de son contenu. Cette suppression est irréversible et aucune copie ne
-subsiste, hors sauvegardes existantes.
+**Sauvegarde iCloud Drive de l'application.** L'application écrit en outre une copie de vos
+données dans **votre** espace iCloud Drive, dossier *Soins Médicaux* : le fichier courant et
+une archive par jour sur trente jours. Cette copie existe pour survivre à la désinstallation
+de l'application ou à la perte de l'appareil.
+
+**Synchronisation entre vos appareils.** Cette même copie sert à tenir vos appareils à jour :
+l'application relit le fichier lorsqu'un autre appareil connecté au même compte iCloud l'a
+modifié, et fusionne les deux versions — ajouts, modifications et suppressions — sans
+intervention de votre part. Les données circulent donc **dans les deux sens** entre vos
+appareils et votre espace iCloud, et uniquement entre eux : elles ne transitent par aucun
+service de l'éditeur.
+
+Elle reste sous votre seul contrôle : l'éditeur n'y a aucun accès. Elle est hébergée par
+Apple, dans les conditions du compte iCloud dont vous êtes titulaire, et transite chiffrée.
+Apple agit ici comme sous-traitant technique de votre propre stockage, non comme
+destinataire des données.
+
+Trois conséquences dont vous devez tenir compte en tant que responsable de traitement :
+
+- ces données de santé quittent l'appareil pour l'infrastructure d'Apple ;
+- toute personne ayant accès à votre compte iCloud peut lire le dossier *Soins Médicaux*
+  depuis l'app Fichiers — protégez ce compte par l'authentification à deux facteurs ;
+- activer le **chiffrement de bout en bout** d'iCloud (*Réglages → votre nom → iCloud →
+  Protection avancée des données*) place cette copie hors de portée d'Apple elle-même. C'est
+  vivement recommandé pour un usage professionnel.
+
+Pour désactiver cette copie, désactivez iCloud Drive pour l'application dans *Réglages →
+votre nom → iCloud*. L'application continue alors de fonctionner en local, et l'écran
+*Plus → Sauvegarde iCloud* indique `Indisponible`.
+
+**Partage entre appareils.** Le partage par AirDrop transmet un fichier directement d'un
+appareil à l'autre, en pair-à-pair, sans passer par aucun serveur. Le fichier transmis
+n'est pas chiffré une fois arrivé à destination : ne le partagez qu'avec un appareil dont
+vous avez la maîtrise, et supprimez-le du dossier de réception une fois importé.
+
+**Suppression.** Supprimer une fiche dans l'application la supprime sur tous vos appareils
+synchronisés : la suppression est propagée avec le reste, et aucun appareil ne la rétablit.
+Elle subsiste en revanche dans les **archives quotidiennes** tant que celles-ci n'ont pas
+défilé — trente jours au plus.
+
+Désinstaller l'application supprime définitivement le fichier de données local et l'ensemble
+de son contenu. **La sauvegarde iCloud Drive, elle, n'est pas supprimée** — c'est sa raison
+d'être. Pour l'effacer, supprimez le dossier *Soins Médicaux* dans l'app Fichiers, puis videz
+la corbeille d'iCloud Drive.
 
 ## 5. Exports
 

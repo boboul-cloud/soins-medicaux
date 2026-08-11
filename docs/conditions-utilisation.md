@@ -1,7 +1,7 @@
 # Conditions générales d'utilisation — Soins Médicaux
 
-**Dernière mise à jour : 10 août 2026**
-**Version de l'application : 1.0**
+**Dernière mise à jour : 11 août 2026**
+**Version de l'application : 1.1**
 
 ## Article 1 — Objet
 
@@ -18,9 +18,15 @@ L'Application est un outil de **gestion administrative de cabinet médical**. El
 d'enregistrer et de consulter des fiches patients, des fiches médecins, des types d'actes
 et un historique de soins prodigués, ainsi que d'en tirer des statistiques d'activité.
 
-L'Application fonctionne **intégralement hors ligne**. Elle ne comporte ni compte
-utilisateur, ni serveur, ni synchronisation. Les données saisies sont stockées uniquement
-sur l'appareil de l'utilisateur.
+L'Application ne comporte **ni compte utilisateur, ni serveur de l'Éditeur**. Les données
+saisies sont stockées sur l'appareil de l'utilisateur.
+
+L'Application y ajoute une **sauvegarde dans l'espace iCloud Drive de l'utilisateur**, qui
+sert également à synchroniser ses propres appareils entre eux. Ce service est fourni par
+Apple, dans le cadre du compte iCloud dont l'utilisateur est titulaire et des conditions
+qu'il a conclues avec Apple ; l'Éditeur n'y a aucun accès et n'en garantit ni la
+disponibilité ni les délais. Cette fonction peut être désactivée depuis les réglages d'iOS,
+l'Application continuant alors de fonctionner localement.
 
 ## Article 3 — Absence de qualité de dispositif médical
 
@@ -61,9 +67,15 @@ compatible avec les règles applicables à sa profession et à son pays d'exerci
 
 ## Article 6 — Sauvegarde et perte de données
 
-Les données étant stockées exclusivement sur l'appareil, **leur perte est définitive** en
-cas de perte, de vol, de panne ou de réinitialisation de l'appareil, ou de désinstallation
-de l'Application, sauf sauvegarde préalable.
+Les données étant stockées sur l'appareil, **leur perte est définitive** en cas de perte, de
+vol, de panne ou de réinitialisation de l'appareil, ou de désinstallation de l'Application,
+sauf sauvegarde préalable.
+
+La sauvegarde iCloud Drive, lorsqu'elle est active, survit à la désinstallation de
+l'Application mais ne constitue pas une garantie : elle dépend d'un service tiers, du compte
+iCloud de l'utilisateur et de la disponibilité du réseau. Sur des appareils synchronisés, une
+**suppression est propagée à tous** ; elle n'est récupérable que dans les archives
+quotidiennes, conservées trente jours.
 
 Il est de la responsabilité de l'utilisateur d'effectuer des exports réguliers et de les
 conserver en lieu sûr. L'Éditeur ne peut restaurer aucune donnée, n'en détenant aucune
